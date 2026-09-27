@@ -210,56 +210,8 @@ def render_sidebar(stations_status_df, current_station: str):
         )
 
         st.markdown(
-            """
-            <div style="
-                position:relative;
-                margin-top:10px;
-                padding-top:14px;
-                border-top:1px solid #1e293b;
-            ">
-
-                <div style="
-                    font-size:13px;
-                    color:#e2e8f0;
-                ">
-                    ⚙️ Settings
-                </div>
-
-                <div style="
-                    margin-top:14px;
-                    display:flex;
-                    align-items:center;
-                    gap:8px;
-                ">
-
-                    <div style="
-                        width:8px;
-                        height:8px;
-                        border-radius:50%;
-                        background:#22c55e;
-                    "></div>
-
-                    <div style="
-                        font-size:13px;
-                        color:#e2e8f0;
-                        font-weight:600;
-                    ">
-                        System Online
-                    </div>
-
-                </div>
-
-                <div style="
-                    font-size:11px;
-                    color:#64748b;
-                    margin-left:16px;
-                ">
-                    All services operational
-                </div>
-
-            </div>
-            """,
-            unsafe_allow_html=True,
+            "---\n\n⚙️ **Settings**\n\n🟢 **System Online**\n\n"
+            "All services operational"
         )
 
         # =====================================================
