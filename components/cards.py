@@ -6,10 +6,16 @@ passed in from the caller (app.py / pages/*) -- nothing is computed or
 hardcoded in this module.
 """
 
+import html
+
 import streamlit as st
 
 from components import styles
 from utils import helpers
+
+
+def escape_html(value):
+    return html.escape(str(value), quote=True)
 
 
 def anomaly_status_card(detection: dict):
@@ -147,7 +153,7 @@ def explanation_log_card(explanation: dict):
         f"""
         <div class="wg-explanation-item">
             <div class="wg-explanation-num">{i+1}</div>
-            <div style="padding-top:2px;">{text}</div>
+            <div style="padding-top:2px;">{escape_html(text)}</div>
         </div>
         """
         for i, text in enumerate(explanation["log"])
