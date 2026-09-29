@@ -16,7 +16,11 @@ def inject_custom_css():
         f"""
         <style>
         .stApp {{
-            background-color: {config.COLOR_BG};
+            background-color: Canvas;
+        }}
+
+        [data-testid="stMainMenuItem-theme-Dark"] {{
+            display: none !important;
         }}
 
         section[data-testid="stSidebar"] {{
@@ -36,17 +40,19 @@ def inject_custom_css():
         }}
 
         div[data-testid="stMetric"] {{
-            background-color: white;
+            background-color: Canvas;
+            color: CanvasText;
             padding: 14px 16px;
             border-radius: 10px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid rgba(127, 127, 127, 0.25);
         }}
 
         .wg-card {{
-            background-color: white;
+            background-color: Canvas;
+            color: CanvasText;
             border-radius: 12px;
             padding: 20px 22px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid rgba(127, 127, 127, 0.25);
             box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
             margin-bottom: 18px;
         }}
@@ -55,23 +61,25 @@ def inject_custom_css():
             font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: #94a3b8;
+            color: CanvasText;
+            opacity: 0.72;
             margin-bottom: 2px;
         }}
         .wg-card-title {{
             font-size: 17px;
             font-weight: 700;
-            color: #0f172a;
+            color: CanvasText;
             margin-bottom: 10px;
         }}
         .wg-big-number {{
             font-size: 34px;
             font-weight: 800;
-            color: #0f172a;
+            color: CanvasText;
             line-height: 1.1;
         }}
         .wg-sub {{
-            color: #64748b;
+            color: CanvasText;
+            opacity: 0.72;
             font-size: 13px;
         }}
 
@@ -95,7 +103,8 @@ def inject_custom_css():
             display: flex;
             gap: 12px;
             padding: 10px 0;
-            border-bottom: 1px solid #f1f5f9;
+            border-bottom: 1px solid rgba(127, 127, 127, 0.25);
+            color: CanvasText;
         }}
         .wg-explanation-num {{
             flex-shrink: 0;
@@ -122,11 +131,12 @@ def inject_custom_css():
         .wg-hero-title {{
             font-size: 26px;
             font-weight: 800;
-            color: #0f172a;
+            color: CanvasText;
             margin-bottom: 2px;
         }}
         .wg-hero-sub {{
-            color: #64748b;
+            color: CanvasText;
+            opacity: 0.72;
             font-size: 14px;
             margin-bottom: 18px;
         }}
