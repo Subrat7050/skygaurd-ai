@@ -164,12 +164,12 @@ def explanation_log_card(explanation: dict):
             <div class="wg-card-eyebrow">EXPLAINABLE AI</div>
             <div class="wg-card-title">AI Explanation Log</div>
             {items_html}
-            <div class="wg-sub" style="margin-top:10px;background:#fffbeb;padding:8px 12px;border-radius:6px;">
-                ⚠️ AI explanation is based on sensor trends and nearby station comparison.
-            </div>
         </div>
         """,
         unsafe_allow_html=True,
+    )
+    st.caption(
+        "AI explanation is based on sensor trends and nearby station comparison."
     )
     if explanation.get("contributions"):
         st.markdown('<div class="wg-card"><div class="wg-card-eyebrow">DETECTION FACTORS</div><div class="wg-card-title">Anomaly Contribution Indicators</div>', unsafe_allow_html=True)
