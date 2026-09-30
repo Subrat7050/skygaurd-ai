@@ -79,9 +79,8 @@ FEATURE_SENSORS = [
 # --------------------------------------------------------------------------
 ISOLATION_FOREST_PARAMS = {
     "n_estimators": 200,
-    # A precision-focused alert rate reduces false positives. On the
-    # 90-day held-out test window, 1.5% reached more than 70% precision.
-    "contamination": 0.015,
+    # Keep the alert threshold precision-focused to reduce false positives.
+    "contamination": 0.01,
     "random_state": RANDOM_SEED,
     "n_jobs": -1,
 }

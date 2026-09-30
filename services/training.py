@@ -78,6 +78,7 @@ def train_anomaly_model(train_df: pd.DataFrame) -> tuple:
 
     metadata = {
         "feature_columns": pp.get_feature_columns(),
+        "isolation_forest_params": dict(config.ISOLATION_FOREST_PARAMS),
         "train_period": (str(train_df["timestamp"].min()), str(train_df["timestamp"].max())),
         "n_train": len(train_df),
     }

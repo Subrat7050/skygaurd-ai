@@ -88,25 +88,26 @@ def load_or_train_pipeline(_feat_df):
     if existing is not None:
         model, preprocessor, metadata = existing
 
-        train_df, test_df = training.chronological_split(
-            _feat_df
-        )
+        if metadata.get("isolation_forest_params") == config.ISOLATION_FOREST_PARAMS:
+            train_df, test_df = training.chronological_split(
+                _feat_df
+            )
 
-        evaluation = training.evaluate_model(
-            model,
-            preprocessor,
-            test_df,
-        )
+            evaluation = training.evaluate_model(
+                model,
+                preprocessor,
+                test_df,
+            )
 
-        evaluation["train_period"] = metadata["train_period"]
-        evaluation["n_train"] = metadata["n_train"]
+            evaluation["train_period"] = metadata["train_period"]
+            evaluation["n_train"] = metadata["n_train"]
 
-        return {
-            "model": model,
-            "preprocessor": preprocessor,
-            "metadata": metadata,
-            "evaluation": evaluation,
-        }
+            return {
+                "model": model,
+                "preprocessor": preprocessor,
+                "metadata": metadata,
+                "evaluation": evaluation,
+            }
 
     result = training.train_and_evaluate_full_pipeline(
         _feat_df

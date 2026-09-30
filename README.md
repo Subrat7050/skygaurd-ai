@@ -200,8 +200,9 @@ train_df, test_df = df_sorted.iloc[:split], df_sorted.iloc[split:]
 ### Model Persistence
 `train_anomaly_model()` saves `isolation_forest.joblib`,
 `preprocessor.joblib`, and `metadata.joblib` to `models/trained/`. On
-startup, `app.py` loads them via `@st.cache_resource` if present; if
-missing, it trains automatically. The dataset generator is seeded
+startup, `app.py` loads them via `@st.cache_resource` when their recorded
+Isolation Forest parameters match the current config; otherwise, it trains
+and saves a fresh model. The dataset generator is seeded
 (`RANDOM_SEED = 42`), so re-training on a fresh run reproduces the same
 data and comparable metrics.
 
